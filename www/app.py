@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+__author__ = "zeatual(coverd by 'cc')"
+
 import logging; logging.basicConfig(level=logging.INFO)
 
 import asyncio,os,json,time
