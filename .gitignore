@@ -1,1 +1,4 @@
-www/.vscode/launch.json
+www/.vscode/*.*
+www/__pycache__/*.*
+.vscode/*.*
+

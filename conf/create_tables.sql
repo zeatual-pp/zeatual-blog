@@ -1,29 +1,30 @@
---create_tables.sql
+
 
 drop database if exists zeatualblog;
 
-c
-reate database zeatualblog;
+create database zeatualblog;
 
 use zeatualblog;
 
-grant select, insert, update, delete on zeatualblog.* to 'zeatual'@'localhost' identified by 'password';
+create user 'zeatual'@'%' identified by 'password';
+
+grant select, insert, update, delete on zeatualblog.* to 'zeatual'@'localhost';
 
 create table users(
-    'id' varchar(50) not null,
-    'email' varchar(50) not null,
-    'passwd' varchar(50) not null,
-    'admin' bool not null,
-    'name' varchar(50) not null,
-    'image' varchar(500) not null,
-    'create_at' real not null,
-    unique key 'idx_email' ('email'),
-    key 'idx_create_at' ('create_at'),
-    primary key ('id')
+    `id` varchar(50) not null,
+    `email` varchar(50) not null,
+    `passwd` varchar(50) not null,
+    `admin` bool not null,
+    `name` varchar(50) not null,
+    `image` varchar(500) not null,
+    `created_at` real not null,
+    unique key `idx_email` (`email`),
+    key `idx_created_at` (`created_at`),
+    primary key (`id`)
 ) engine=innodb default charset=utf8;
 
 
-create table blogs (
+create table blogs(
     `id` varchar(50) not null,
     `user_id` varchar(50) not null,
     `user_name` varchar(50) not null,
@@ -36,7 +37,7 @@ create table blogs (
     primary key (`id`)
 ) engine=innodb default charset=utf8;
 
-create table comments (
+create table comments(
     `id` varchar(50) not null,
     `blog_id` varchar(50) not null,
     `user_id` varchar(50) not null,
